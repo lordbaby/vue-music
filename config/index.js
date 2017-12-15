@@ -10,7 +10,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'https://c.y.qq.com/',
+        changeOrigin: true,
+        pathRewrite: {
+          '/api/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg': '/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
+        },
+        referer: 'https://c.y.qq.com/',
+        host: 'c.y.qq.com'
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
